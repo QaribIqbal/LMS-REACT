@@ -15,7 +15,7 @@ import { CheckBox, CheckBoxOutlineBlank } from "@mui/icons-material";
 import { TaskContext } from "./TaskContext.jsx"; // Make sure this path is correct
 
 export default function Todo() {
-  const { tasks, addTask, removeTask, updateStatus } = useContext(TaskContext);
+  const { tasks, addTask, removeTask, updateStatus, taskCounter } = useContext(TaskContext);
   const [rows, setRows] = useState([]);
   const hasInitialized = useRef(false);
 
@@ -53,7 +53,7 @@ export default function Todo() {
       // Add each default task with a unique ID
       defaultTasks.forEach((task, index) => {
         addTask({
-          id: Date.now() + index, // Ensure unique ID
+          id: index+1, // Ensure unique ID
           title: task.title,
           desc: task.description,
           dueDate: task.dueDate,
@@ -191,7 +191,7 @@ export default function Todo() {
 
   const handleSubmit = () => {
     addTask({
-      id: Date.now() + Math.random(), // Ensure unique ID
+      id: taskCounter()+1, // Ensure unique ID
       title,
       desc,
       dueDate,
