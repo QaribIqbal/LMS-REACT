@@ -138,7 +138,7 @@ export default function DashboardLayoutBasic(props) {
             }
           />
           <Route path="/calculator" element={<BootstrapCGPACalculator />} />
-          <Route path="*" element={<div>Page not found</div>} />
+          <Route path="*" element={<DashboardHome/>} />
         </Routes>
       </DashboardLayout>
     </AppProvider>

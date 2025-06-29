@@ -29,7 +29,7 @@ function DashboardHome() {
           }}
         >
           <Ballpit
-            count={20}
+            count={200}
             gravity={0.4}
             friction={0.9}
             wallBounce={0.95}
@@ -45,7 +45,7 @@ function DashboardHome() {
           />
         </div>
         <div style={{ position: "relative", zIndex: 1, padding: "2rem" }}>
-          <div className="d-flex row">
+          <div className="d-flex row mt-4">
             <div className="col-sm-12 col-md-12 col-lg-8">
               <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12 mb-4">
