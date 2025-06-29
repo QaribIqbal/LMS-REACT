@@ -1,0 +1,61 @@
+/* 
+.theme{
+    background-color: inherit important!;
+    color: inherit important!;
+} */
+ /* in App.css or a global stylesheet */
+.theme-container {
+  /* use the Bootstrap variable for background */
+  background-color: var(--bs-body-bg) !important;
+  color: var(--bs-body-color) !important;
+}
+.text-info-custom {
+  color: rgb(30, 135, 240);
+}
+.hide-scrollbar {
+  scrollbar-width: none !important; /* For Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Main container */
+.MuiDataGrid-main {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.MuiDataGrid-main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Virtual scroller */
+.MuiDataGrid-virtualScroller {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.MuiDataGrid-virtualScroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* Column headers */
+.MuiDataGrid-columnHeaders {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.MuiDataGrid-columnHeaders::-webkit-scrollbar {
+  display: none;
+}
+
+/* Footer container */
+.MuiDataGrid-footerContainer {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.MuiDataGrid-footerContainer::-webkit-scrollbar {
+  display: none;
+}

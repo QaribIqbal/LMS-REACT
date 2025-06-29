@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useContext, useState, useEffect, useMemo, useRef } from "react";
+import BlurText from "./blurText";
+import { useContext, useState, useEffect, useMemo} from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import {
   Paper,
@@ -8,63 +8,69 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Typography,
 } from "@mui/material";
 import Button from "react-bootstrap/Button";
-import { CheckBox, CheckBoxOutlineBlank } from "@mui/icons-material";
+import Checkbox from "@mui/material/Checkbox";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import { TaskContext } from "./TaskContext.jsx"; // Make sure this path is correct
 
 export default function Todo() {
-  const { tasks, addTask, removeTask, updateStatus, taskCounter } = useContext(TaskContext);
+  const { tasks, addTask, removeTask, updateStatus, taskCounter } =
+    useContext(TaskContext);
   const [rows, setRows] = useState([]);
-  const hasInitialized = useRef(false);
+  // const hasInitialized = useRef(false);
 
-  // Initialize default tasks only once
-  useEffect(() => {
-    if (!hasInitialized.current && tasks.length === 0) {
-      const defaultTasks = [
-        {
-          title: "Complete frontend UI",
-          description: "Finish designing the user interface for the dashboard screen.",
-          dueDate: "2025-07-01",
-        },
-        {
-          title: "Write API integration logic",
-          description: "Integrate backend APIs with the form submission module.",
-          dueDate: "2025-07-03",
-        },
-        {
-          title: "Team standup meeting",
-          description: "Daily 15-minute sync with the development team via Zoom.",
-          dueDate: "2025-06-29",
-        },
-        {
-          title: "Fix login bug",
-          description: "Resolve the issue where users are not redirected after login.",
-          dueDate: "2025-06-30",
-        },
-        {
-          title: "Prepare deployment checklist",
-          description: "Document all steps and items needed before production deployment.",
-          dueDate: "2025-07-05",
-        },
-      ];
-      
-      // Add each default task with a unique ID
-      defaultTasks.forEach((task, index) => {
-        addTask({
-          id: index+1, // Ensure unique ID
-          title: task.title,
-          desc: task.description,
-          dueDate: task.dueDate,
-          status: "pending",
-        });
-      });
-      
-      // Mark as initialized
-      hasInitialized.current = true;
-    }
-  }, [tasks, addTask]);
+  // // Initialize default tasks only once
+  // useEffect(() => {
+  //   if (!hasInitialized.current && tasks.length === 0) {
+  //     const defaultTasks = [
+  //       {
+  //         title: "Complete frontend UI",
+  //         description:
+  //           "Finish designing the user interface for the dashboard screen.",
+  //         dueDate: "2025-07-01",
+  //       },
+  //       {
+  //         title: "Write API integration logic",
+  //         description:
+  //           "Integrate backend APIs with the form submission module.",
+  //         dueDate: "2025-07-03",
+  //       },
+  //       {
+  //         title: "Team standup meeting",
+  //         description:
+  //           "Daily 15-minute sync with the development team via Zoom.",
+  //         dueDate: "2025-06-29",
+  //       },
+  //       {
+  //         title: "Fix login bug",
+  //         description:
+  //           "Resolve the issue where users are not redirected after login.",
+  //         dueDate: "2025-06-30",
+  //       },
+  //       {
+  //         title: "Prepare deployment checklist",
+  //         description:
+  //           "Document all steps and items needed before production deployment.",
+  //         dueDate: "2025-07-05",
+  //       },
+  //     ];
+
+  //     // Add each default task with a unique ID
+  //     defaultTasks.forEach((task, index) => {
+  //       addTask({
+  //         id: index + 1, // Ensure unique ID
+  //         title: task.title,
+  //         desc: task.description,
+  //         dueDate: task.dueDate,
+  //         status: "pending",
+  //       });
+  //     });
+
+  //     // Mark as initialized
+  //     hasInitialized.current = true;
+  //   }
+  // }, [tasks, addTask]);
 
   // Rebuild rows when tasks change
   useEffect(() => {
@@ -85,10 +91,24 @@ export default function Todo() {
       {
         field: "id",
         headerName: "ID",
-        flex: 0.7,
+        flex: 0.4,
         sortable: true,
         type: "number",
+        renderCell: (params) => (
+          <span
+            style={{
+              textDecoration:
+                params.row.status === "done" ? "line-through" : "none",
+              textDecorationColor:
+                params.row.status === "done" ? "darkgreen" : "inherit",
+              textDecorationThickness: "5px",
+            }}
+          >
+            {params.value}
+          </span>
+        ),
       },
+
       {
         field: "title",
         headerName: "Task",
@@ -99,6 +119,9 @@ export default function Todo() {
             style={{
               textDecoration:
                 params.row.status === "done" ? "line-through" : "none",
+              textDecorationColor:
+                params.row.status === "done" ? "darkgreen" : "inherit",
+              textDecorationThickness: "5px",
             }}
           >
             {params.value}
@@ -115,6 +138,9 @@ export default function Todo() {
             style={{
               textDecoration:
                 params.row.status === "done" ? "line-through" : "none",
+              textDecorationColor:
+                params.row.status === "done" ? "darkgreen" : "inherit",
+              textDecorationThickness: "5px",
             }}
           >
             {params.value}
@@ -126,17 +152,38 @@ export default function Todo() {
         headerName: "Due Date",
         flex: 1,
         sortable: true,
-        type: "date",
-        valueGetter: (params) =>
-          params.row?.dueDate ? new Date(params.row.dueDate) : null,
+        type: "Date",
         renderCell: (params) => (
           <span
             style={{
               textDecoration:
                 params.row.status === "done" ? "line-through" : "none",
+              textDecorationColor:
+                params.row.status === "done" ? "darkgreen" : "inherit",
+              textDecorationThickness: "5px",
             }}
           >
             {params.row?.dueDate || "N/A"}
+          </span>
+        ),
+      },
+      {
+        field: "status",
+        headerName: "Status",
+        flex: 0.5,
+        sortable: true,
+        type: "string",
+        renderCell: (params) => (
+          <span
+            style={{
+              textDecoration:
+                params.row.status === "done" ? "line-through" : "none",
+              textDecorationColor:
+                params.row.status === "done" ? "darkgreen" : "inherit",
+              textDecorationThickness: "5px",
+            }}
+          >
+            {params.value}
           </span>
         ),
       },
@@ -147,12 +194,18 @@ export default function Todo() {
         sortable: false,
         renderCell: (params) =>
           params.row.status === "done" ? (
-            <CheckBox
+            <Checkbox
+              checked
               color="success"
               onClick={() => updateStatus(params.row.id)}
             />
           ) : (
-            <CheckBoxOutlineBlank onClick={() => updateStatus(params.row.id)} />
+            <Checkbox
+              icon={<CheckBoxOutlineBlankIcon />}
+              checked={false}
+              color="default"
+              onClick={() => updateStatus(params.row.id)}
+            />
           ),
       },
       {
@@ -191,7 +244,7 @@ export default function Todo() {
 
   const handleSubmit = () => {
     addTask({
-      id: taskCounter()+1, // Ensure unique ID
+      id: taskCounter() + 1, // Ensure unique ID
       title,
       desc,
       dueDate,
@@ -199,20 +252,31 @@ export default function Todo() {
     });
     handleClose();
   };
-
+ const handleAnimationComplete = () => {
+    console.log("Animation completed!");
+  };
   return (
-    <div className="p-4">
-      <Typography
+    <div className="p-4 mt-4">
+      {/* <Typography
         variant="h5"
         color="primary"
         className="fw-bolder"
         gutterBottom
       >
         To Do's
-      </Typography>
+      </Typography> */}
+      <BlurText
+              text="To Do's"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              onAnimationComplete={handleAnimationComplete}
+              className="display-6 fw-bolder mb-3 text-info-custom"
+            />
+
 
       <Paper
-        className="mt-2"
+        className="mt-4 shadow"
         sx={{ minWidth: 900, height: 400, width: "100%" }}
       >
         <DataGrid

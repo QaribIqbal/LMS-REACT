@@ -1,3 +1,4 @@
+import BlurText from "./blurText";
 import React, { useState, useMemo } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -145,13 +146,29 @@ export default function Schedule() {
           ? "info"
           : "success";
   };
-
+  const handleAnimationComplete = () => {
+    console.log("Animation completed!");
+  };
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h5" color="primary" gutterBottom>
+    <Box sx={{ p: 3, mt: 4 }}>
+      {/* <Typography
+        variant="h5"
+        color="primary"
+        className="fw-bolder"
+        gutterBottom
+      >
         My Schedule
-      </Typography>
-      <Paper>
+      </Typography> */}
+      <BlurText
+        text="My Schedule"
+        delay={150}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={handleAnimationComplete}
+        className="display-6 fw-bolder mb-3 text-info-custom"
+      />
+
+      <Paper className="shadow mt-4" >
         <TableContainer>
           <Table>
             <TableHead>
