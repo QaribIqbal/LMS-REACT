@@ -143,7 +143,7 @@ export default function RecentActivityTable() {
   return (
     <div className="p-0 m-0 mt-4">
       <BlurText
-        text="Recent Tasks"
+        text="To Do's"
         delay={180}
         animateBy="words"
         direction="top"
