@@ -52,7 +52,7 @@ const NAVIGATION = [
     path: "/calculator",
   },
    { kind: "divider" },
-  { kind: "header", title: "Tools" },
+  { kind: "header", title: "Contact Us" },
    {
     segment: "ourTeam",
     title: "About Us",

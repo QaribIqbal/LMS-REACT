@@ -3,7 +3,7 @@ import Ballpit from "./background";
 import BlurText from "./blurText";
 import CgpaCard from "./cgpaCard"; // Add this import
 import RecentActivityTable from "./summaryTable";
-import SpotlightCard from "./spotlight";
+import AnimatedContent from "./animate";
 import SummarySchedule from "./summarySchedule";
 function DashboardHome() {
   return (
@@ -48,18 +48,56 @@ function DashboardHome() {
           <div className="d-flex row mt-4">
             <div className="col-sm-12 col-md-12 col-lg-8">
               <div className="row">
-            <div className="col-sm-12 col-md-12 col-lg-12 mb-4">
-              <SummarySchedule />
-            </div>
-            <div className="col-sm-12 col-md-12 col-lg-12 mb-4">
-              <RecentActivityTable />
-            </div>
-            </div>
+                <div className="col-sm-12 col-md-12 col-lg-12 mb-4">
+                  <AnimatedContent
+                    distance={150}
+                    direction="horizontal"
+                    reverse={true}
+                    duration={1.2}
+                    ease="power3.out"
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0.2}
+                    delay={0.3}
+                  >
+                    <SummarySchedule />
+                  </AnimatedContent>
+                </div>
+                <div className="col-sm-12 col-md-12 col-lg-12 mb-4">
+                    <AnimatedContent
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    duration={1.2}
+                    ease="power3.out"
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0}
+                    delay={0.5}
+                  >
+                  <RecentActivityTable />
+                  </AnimatedContent>
+                </div>
+              </div>
             </div>
             <div className="mt-4 col-sm-12 col-md-12 col-lg-4 mb-4">
+                <AnimatedContent
+                    distance={150}
+                    direction="horizontal"
+                    reverse={false}
+                    duration={1.2}
+                    ease="power3.out"
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0.2}
+                    delay={0.3}
+                  >
               <CgpaCard />
+                  </AnimatedContent>
             </div>
-            
           </div>
 
           {/* Add the Recent Tasks table below */}

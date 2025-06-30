@@ -1,3 +1,4 @@
+import AnimatedContent from "./animate";
 import React, { useState, useMemo } from "react";
 // import {motion} from 'framer-motion';
 import BlurText from "./blurText";
@@ -160,7 +161,18 @@ const BootstrapCGPACalculator = () => {
               className="text-grey"
             />
           </header>
-
+  <AnimatedContent
+                    distance={150}
+                    direction="horizontal"
+                    reverse={true}
+                    duration={1.2}
+                    ease="power3.out"
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0.2}
+                    delay={0.3}
+                  >
           <Card className="shadow-lg rounded-4 border-secondary border-opacity-25 theme">
             <Card.Body className="p-lg-5 theme">
               <Tabs
@@ -386,6 +398,8 @@ const BootstrapCGPACalculator = () => {
               Rights Reserved.
             </p>
           </footer>
+                  </AnimatedContent>
+
         </Container>
       </div>
     </>

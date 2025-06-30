@@ -1,0 +1,23 @@
+/* Fix for strict mode double render */
+[data-gsap-context] {
+  min-height: 1px;
+}
+
+/* Prevent layout shifts */
+.animated-content-wrapper {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible !important;
+}
+
+/* Force hardware acceleration */
+.gsap-animated {
+  transform: translateZ(0);
+}
+
+/* Debug markers */
+.gsap-marker {
+  z-index: 9999;
+}

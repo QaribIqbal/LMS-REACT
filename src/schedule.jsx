@@ -1,3 +1,4 @@
+import AnimatedContent from "./animate";
 import BlurText from "./blurText";
 import React, { useState, useMemo } from "react";
 import Button from "react-bootstrap/Button";
@@ -167,7 +168,18 @@ export default function Schedule() {
         onAnimationComplete={handleAnimationComplete}
         className="display-6 fw-bolder mb-3 text-info-custom"
       />
-
+  <AnimatedContent
+                    distance={150}
+                    direction="horizontal"
+                    reverse={true}
+                    duration={1.2}
+                    ease="power3.out"
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0.2}
+                    delay={0.3}
+                  >
       <Paper className="shadow mt-4" >
         <TableContainer>
           <Table>
@@ -341,6 +353,8 @@ export default function Schedule() {
           </Form>
         </Box>
       )}
+                        </AnimatedContent>
+
     </Box>
   );
 }

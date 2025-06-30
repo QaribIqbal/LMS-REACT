@@ -1,5 +1,6 @@
+import AnimatedContent from "./animate.jsx";
 import BlurText from "./blurText";
-import { useContext, useState, useEffect, useMemo} from "react";
+import { useContext, useState, useEffect, useMemo } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import {
   Paper,
@@ -252,7 +253,7 @@ export default function Todo() {
     });
     handleClose();
   };
- const handleAnimationComplete = () => {
+  const handleAnimationComplete = () => {
     console.log("Animation completed!");
   };
   return (
@@ -266,84 +267,96 @@ export default function Todo() {
         To Do's
       </Typography> */}
       <BlurText
-              text="To Do's"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              onAnimationComplete={handleAnimationComplete}
-              className="display-6 fw-bolder mb-3 text-info-custom"
+        text="To Do's"
+        delay={150}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={handleAnimationComplete}
+        className="display-6 fw-bolder mb-3 text-info-custom"
+      />
+
+      <AnimatedContent
+        distance={150}
+        direction="horizontal"
+        reverse={true}
+        duration={1.2}
+        ease="power3.out"
+        initialOpacity={0.2}
+        animateOpacity
+        scale={1.1}
+        threshold={0.2}
+        delay={0.3}
+      >
+        <Paper
+          className="mt-4 shadow"
+          sx={{ minWidth: 900, height: 400, width: "100%" }}
+        >
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSizeOptions={[5, 10, 100]}
+            initialState={{
+              pagination: { paginationModel: { pageSize: 10, page: 0 } },
+            }}
+            sx={{ border: 0 }}
+          />
+        </Paper>
+
+        <Button
+          className="mt-3 px-4"
+          onClick={handleOpen}
+          variant="outline-success"
+          size="md"
+        >
+          + Add Task
+        </Button>
+
+        <Dialog
+          fullWidth
+          maxWidth="md"
+          open={open}
+          onClose={handleClose}
+          slotProps={{ paper: { sx: { borderRadius: 2, p: 2 } } }}
+        >
+          <DialogTitle className="fw-normal">Add a New Task</DialogTitle>
+          <DialogContent sx={{ display: "grid", gap: 2, pt: 1 }}>
+            <TextField
+              label="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              fullWidth
             />
-
-
-      <Paper
-        className="mt-4 shadow"
-        sx={{ minWidth: 900, height: 400, width: "100%" }}
-      >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSizeOptions={[5, 10, 100]}
-          initialState={{
-            pagination: { paginationModel: { pageSize: 10, page: 0 } },
-          }}
-          sx={{ border: 0 }}
-        />
-      </Paper>
-
-      <Button
-        className="mt-3 px-4"
-        onClick={handleOpen}
-        variant="outline-success"
-        size="md"
-      >
-        + Add Task
-      </Button>
-
-      <Dialog
-        fullWidth
-        maxWidth="md"
-        open={open}
-        onClose={handleClose}
-        slotProps={{ paper: { sx: { borderRadius: 2, p: 2 } } }}
-      >
-        <DialogTitle className="fw-normal">Add a New Task</DialogTitle>
-        <DialogContent sx={{ display: "grid", gap: 2, pt: 1 }}>
-          <TextField
-            label="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            fullWidth
-          />
-          <TextField
-            label="Description"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-            fullWidth
-            multiline
-            minRows={2}
-          />
-          <TextField
-            label="Due Date"
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-          />
-        </DialogContent>
-        <DialogActions sx={{ pr: 3, pb: 2 }}>
-          <Button variant="outline-danger" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button
-            variant="success"
-            onClick={handleSubmit}
-            disabled={!title.trim()}
-          >
-            Add
-          </Button>
-        </DialogActions>
-      </Dialog>
+            <TextField
+              label="Description"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+              fullWidth
+              multiline
+              minRows={2}
+            />
+            <TextField
+              label="Due Date"
+              type="date"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+              fullWidth
+              InputLabelProps={{ shrink: true }}
+            />
+          </DialogContent>
+          <DialogActions sx={{ pr: 3, pb: 2 }}>
+            <Button variant="outline-danger" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button
+              variant="success"
+              onClick={handleSubmit}
+              disabled={!title.trim()}
+            >
+              Add
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </AnimatedContent>
     </div>
   );
 }
