@@ -19,6 +19,8 @@ import CalculateIcon from '@mui/icons-material/Calculate';
 import  DashboardIcon  from "@mui/icons-material/Dashboard";
 import BootstrapCGPACalculator from "./cgpa.jsx";
 import DashboardHome from "./dashboard.jsx";
+import Team from "./ourTeam.jsx";
+import GroupsIcon from '@mui/icons-material/Groups';
 
 const NAVIGATION = [
   { kind: "header", title: "Dashboard" },
@@ -48,6 +50,14 @@ const NAVIGATION = [
     title: "CGPA Calculator",
     icon: <CalculateIcon />,
     path: "/calculator",
+  },
+   { kind: "divider" },
+  { kind: "header", title: "Tools" },
+   {
+    segment: "ourTeam",
+    title: "About Us",
+    icon: <GroupsIcon />,
+    path: "/ourTeam",
   },
 ];
 
@@ -138,6 +148,7 @@ export default function DashboardLayoutBasic(props) {
             }
           />
           <Route path="/calculator" element={<BootstrapCGPACalculator />} />
+          <Route path="/ourTeam" element={<Team/>} />
           <Route path="*" element={<DashboardHome/>} />
         </Routes>
       </DashboardLayout>
