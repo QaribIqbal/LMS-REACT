@@ -19,7 +19,7 @@ function Team() {
       handle: "@faizan125",
       borderColor: "#3B82F6",
       gradient: "linear-gradient(145deg,rgb(255, 245, 56), #000)",
-      url: "https://www.facebook.com/people/Chaudhry-Faizan-Mehmood/pfbid0bSc36rr877BJBnwjjnDmmBg5LZMxdp1B9u4gZ6b4JAXDcnFQ9AXudZdv2qiHz9arl/?mibextid=wwXIfr&rdid=kK9DgFN5fAvw6Fpk&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16Wf7oe9W2%2F%3Fmibextid%3DwwXIfr",
+      url: "https://github.com/chfaizanmehmood",
     },
     {
       image: "/Screenshot (703).png",
@@ -37,7 +37,7 @@ function Team() {
       handle: "@Tibi12",
       borderColor: "#10B981",
       gradient: "linear-gradient(180deg,rgb(248, 69, 239), #000)",
-      url: "https://www.youtube.com/watch?v=e_04ZrNroTo",
+      url: "https://www.linkedin.com/in/tabinda-aslam-08333a294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     },
   ];
   const items2 = [
