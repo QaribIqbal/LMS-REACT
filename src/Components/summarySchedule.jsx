@@ -1,4 +1,4 @@
-import BlurText from "./blurText";
+import BlurText from "../Animations/blurText";
 import React, { useState, useMemo } from "react";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";

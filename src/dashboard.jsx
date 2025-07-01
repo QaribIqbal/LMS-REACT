@@ -1,10 +1,10 @@
 // In DashboardHome.jsx
-import Ballpit from "./background";
-import BlurText from "./blurText";
-import CgpaCard from "./cgpaCard"; // Add this import
-import RecentActivityTable from "./summaryTable";
-import AnimatedContent from "./animate";
-import SummarySchedule from "./summarySchedule";
+import Ballpit from "./Animations/background";
+import BlurText from "./Animations/blurText";
+import CgpaCard from "./Components/cgpaCard"; // Add this import
+import RecentActivityTable from "./Components/summaryTable";
+import AnimatedContent from "./Animations/animate";
+import SummarySchedule from "./Components/summarySchedule";
 function DashboardHome() {
   return (
     <div className="py-5 px-1 w-100 theme overflow-auto">

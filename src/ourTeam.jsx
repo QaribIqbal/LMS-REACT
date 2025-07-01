@@ -1,13 +1,13 @@
-import AnimatedContent from "./animate";
-import FuzzyText from "./glitch";
-import GradientText from "./colorText";
-import ChromaGrid from "./ChromaGrid";
-import ShinyText from "./Shinytext";
+import AnimatedContent from "./Animations/animate";
+import FuzzyText from "./Animations/glitch";
+import GradientText from "./Animations/colorText";
+import ChromaGrid from "./Components/ChromaGrid";
+import ShinyText from "./Animations/Shinytext";
 import React from "react";
-import Squares from "./squares";
-import RotatingText from "./rotatingText";
-import ProfileCard from "./profileCard";
-import BlurText from "./blurText";
+import Squares from "./Animations/squares";
+import RotatingText from "./Animations/rotatingText";
+import ProfileCard from "./Components/profileCard";
+import BlurText from "./Animations/blurText";
 import "./Team.css";
 
 function Team() {
@@ -105,7 +105,7 @@ function Team() {
           Meet our
         </h1>
         <RotatingText
-          texts={["Team", "Brain", "Genius"]}
+          texts={["Team", "Gems", "Mind", "Core"]}
           mainClassName="rotating-text-container text-primary fw-bolder"
           staggerFrom="last"
           initial={{ y: "100%", opacity: 0 }}
@@ -217,7 +217,7 @@ function Team() {
           delay={180}
           animateBy="words"
           direction="top"
-          className="fs-2 fw-bold mb-0 mt-2 text-primary"
+          className="fs-2 fw-semibold mb-0 mt-2 text-primary fst-italic"
           style={{color:"inherit"}}
         ></BlurText>
        </div>

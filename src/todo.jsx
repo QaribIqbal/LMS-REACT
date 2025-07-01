@@ -1,5 +1,5 @@
-import AnimatedContent from "./animate.jsx";
-import BlurText from "./blurText";
+import AnimatedContent from "./Animations/animate.jsx";
+import BlurText from "./Animations/blurText.jsx";
 import { useContext, useState, useEffect, useMemo } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import {
@@ -13,7 +13,7 @@ import {
 import Button from "react-bootstrap/Button";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import { TaskContext } from "./TaskContext.jsx"; // Make sure this path is correct
+import { TaskContext } from "./context/TaskContext.jsx"; // Make sure this path is correct
 
 export default function Todo() {
   const { tasks, addTask, removeTask, updateStatus, taskCounter } =

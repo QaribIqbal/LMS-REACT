@@ -1,7 +1,7 @@
-import AnimatedContent from "./animate";
+import AnimatedContent from "../Animations/animate";
 import React, { useState, useMemo } from "react";
 // import {motion} from 'framer-motion';
-import BlurText from "./blurText";
+import BlurText from "../Animations/blurText";
 import {
   Container,
   Row,

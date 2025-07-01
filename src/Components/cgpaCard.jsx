@@ -3,7 +3,7 @@ import { Paper, Typography } from "@mui/material";
 import SchoolIcon from '@mui/icons-material/School';
 import GradeIcon from '@mui/icons-material/Grade';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import BlurText from "./blurText";
+import BlurText from "../Animations/blurText";
 
 export default function CgpaCard() {
   // Static data for now - replace with dynamic data later

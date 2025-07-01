@@ -17,7 +17,7 @@ import Todo from "./todo.jsx";
 import Schedule from "./schedule.jsx";
 import CalculateIcon from '@mui/icons-material/Calculate';
 import  DashboardIcon  from "@mui/icons-material/Dashboard";
-import BootstrapCGPACalculator from "./cgpa.jsx";
+import BootstrapCGPACalculator from "./Components/cgpa.jsx";
 import DashboardHome from "./dashboard.jsx";
 import Team from "./ourTeam.jsx";
 import GroupsIcon from '@mui/icons-material/Groups';

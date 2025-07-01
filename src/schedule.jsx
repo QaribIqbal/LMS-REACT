@@ -1,5 +1,5 @@
-import AnimatedContent from "./animate";
-import BlurText from "./blurText";
+import AnimatedContent from "./Animations/animate";
+import BlurText from "./Animations/blurText";
 import React, { useState, useMemo } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -132,9 +132,7 @@ export default function Schedule() {
   };
 
   const handleRemove = (id) => {
-    if (window.confirm("Remove this schedule item?")) {
       setItems((prev) => prev.filter((i) => i.id !== id));
-    }
   };
 
   const typeToVariant = (type) => {

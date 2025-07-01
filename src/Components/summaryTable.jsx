@@ -1,65 +1,13 @@
-import { useContext, useEffect, useMemo, useState, useRef } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import BlurText from "./blurText";
-import { TaskContext } from "./TaskContext";
+import BlurText from "../Animations/blurText";
+import { TaskContext } from "../context/TaskContext";
 
 export default function RecentActivityTable() {
-  const { tasks, addTask } = useContext(TaskContext);
+  const { tasks } = useContext(TaskContext);
   const [rows, setRows] = useState([]);
-  const hasInitialized = useRef(false);
-
-  useEffect(() => {
-    if (!hasInitialized.current && tasks.length === 0) {
-      const defaultTasks = [
-        {
-          title: "Complete frontend UI",
-          description:
-            "Finish designing the user interface for the dashboard screen.",
-          dueDate: "2025-07-01",
-        },
-        {
-          title: "Write API integration logic",
-          description:
-            "Integrate backend APIs with the form submission module.",
-          dueDate: "2025-07-03",
-        },
-        {
-          title: "Team standup meeting",
-          description:
-            "Daily 15-minute sync with the development team via Zoom.",
-          dueDate: "2025-06-29",
-        },
-        {
-          title: "Fix login bug",
-          description:
-            "Resolve the issue where users are not redirected after login.",
-          dueDate: "2025-06-30",
-        },
-        {
-          title: "Prepare deployment checklist",
-          description:
-            "Document all steps and items needed before production deployment.",
-          dueDate: "2025-07-05",
-        },
-      ];
-
-      // Add each default task with a unique ID
-      defaultTasks.forEach((task, index) => {
-        addTask({
-          id: index + 1, // Ensure unique ID
-          title: task.title,
-          desc: task.description,
-          dueDate: task.dueDate,
-          status: "pending",
-        });
-      });
-
-      // Mark as initialized
-      hasInitialized.current = true;
-    }
-  }, [tasks, addTask]);
-  // Prepare and format data
+  
   useEffect(() => {
     const formattedTasks = tasks
       .map((task) => ({
