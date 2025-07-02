@@ -150,14 +150,7 @@ export default function Schedule() {
   };
   return (
     <Box sx={{ p: 3, mt: 4 }}>
-      {/* <Typography
-        variant="h5"
-        color="primary"
-        className="fw-bolder"
-        gutterBottom
-      >
-        My Schedule
-      </Typography> */}
+     
       <BlurText
         text="My Schedule"
         delay={150}
@@ -272,7 +265,7 @@ export default function Schedule() {
             left: 0,
             width: "100%",
             height: "100%",
-            bgcolor: "rgba(0,0,0,0.6)",
+            bgcolor: "rgba(123, 118, 118, 0.07)",
             zIndex: 1040,
           }}
           onClick={() => setShowForm(false)}
