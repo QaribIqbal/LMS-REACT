@@ -222,9 +222,7 @@ const BootstrapCGPACalculator = () => {
                           value={previousCredits}
                           // onChange={(e) => setPreviousCredits(e.target.value)}
                           onChange={(e) => {
-                              if (e.target.value > 4.0) {
-                                setPreviousCredits(4.0);
-                              } else if (e.target.value < 0.0) {
+                              if (e.target.value < 0.0) {
                                 setPreviousCredits(0);
                               } else {
                                 setPreviousCredits(e.target.value);
